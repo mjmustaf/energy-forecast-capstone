@@ -93,7 +93,7 @@ energy-forecast-capstone/
 
 ---
 
-##  Future Directions
+##  Potential Enhancements
 
 - Integrate weather and climate data through APIs (e.g., OpenWeatherMap)
 - Use advanced ML models like Random Forest or XGBoost
