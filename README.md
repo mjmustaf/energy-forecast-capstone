@@ -1,68 +1,105 @@
 # Predicting Solar Energy Output Using Machine Learning
 
-## Business Understanding
+---
 
-As nations increasingly shift to renewable energy, solar power has become a critical contributor to clean electricity. However, solar energy generation is inherently variable and influenced by economic, technological, and geographic factors. Accurately forecasting solar energy output is crucial for energy providers, policymakers, and urban planners to make informed decisions about infrastructure investments, storage capacity, and grid stability.
+##  Project Overview
 
-This project addresses the challenge: **Can we predict solar energy output using publicly available economic and demographic data such as GDP, population, and energy policies?**
+As the world shifts toward sustainable energy, solar power is one of the fastest-growing contributors to global electricity generation. However, the variability of solar energy—driven by economics, geography, and environmental factors—makes it difficult to plan for consistent supply.
 
-## Dataset Overview
+This capstone project explores the question:  
+**Can we forecast a country's solar energy output using only publicly available economic indicators like GDP and population?**
 
-- Source: [World Energy Consumption – Kaggle](https://www.kaggle.com/datasets/pralabhpoudel/world-energy-consumption/data)
-- Records: 22,000+ country-year observations
-- Features: Over 100 columns covering fossil, renewable, and nuclear energy consumption; population; GDP; and emissions.
-- Target: Solar consumption (TWh) per country per year
+---
 
-## Methodology
+##  Business Context
 
-The workflow includes:
+Energy providers, grid operators, and governments need reliable forecasts to:
+- Balance supply and demand
+- Optimize energy storage
+- Plan infrastructure investments
+- Reduce reliance on fossil fuels
 
-1. **Data Cleaning**: Removed columns with >50% missing values, filtered out rows lacking solar and GDP data.
-2. **Feature Engineering**:
-   - Created solar output per million people
-   - Calculated GDP per capita
-   - Extracted decade for time-grouping
-3. **EDA**: Conducted visual and statistical analysis to detect trends and relationships.
-4. **Modeling**:
-   - Baseline model using Linear Regression
-   - Evaluated with RMSE and R² metrics
+Accurate forecasting enables smarter decision-making, and while environmental data (sunlight hours, temperature) is ideal, we wanted to explore how far we can go with just macro-level indicators.
 
-## Results and Key Findings
+---
+
+##  Dataset Details
+
+- **Source**: [World Energy Consumption Dataset (Kaggle)](https://www.kaggle.com/datasets/pralabhpoudel/world-energy-consumption/data)
+- **Scope**: ~22,000 country-year records, 129 columns
+- **Features Used**: GDP, population, solar consumption, derived features
+- **Target Variable**: `solar_consumption` (in TWh)
+
+---
+
+##  Methodology
+
+**1. Data Cleaning**
+- Removed columns with >50% missing data
+- Filtered for rows with valid GDP, population, and solar energy output
+
+**2. Feature Engineering**
+- Created `solar_per_million`, `gdp_per_capita`, and `decade` buckets
+
+**3. Exploratory Data Analysis**
+- Visualized solar energy trends over time
+- Analyzed distribution of consumption and feature correlations
+
+**4. Baseline Modeling**
+- Trained a simple Linear Regression model on 3 features
+- Evaluated with RMSE and R² metrics
+
+---
+
+##  Results
+
+The baseline Linear Regression model produced:
 
 - **RMSE**: 39.41
 - **R² Score**: -1.27
 
-These results indicate that the model failed to generalize well. The poor R² suggests that economic indicators alone are insufficient to explain solar output variability, which is likely more dependent on climate, technology adoption, and national policies.
-
-## Visualizations
-
-Visualizations included:
-- Histograms of solar energy output
-- Line plots showing growth in solar consumption over time
-- Correlation heatmaps identifying relationships between GDP, population, and energy features
-
-## Limitations
-
-- No weather or geographic data (e.g., sunlight hours, elevation)
-- High sparsity in early years for solar data
-- Limited features related to energy policy or technological infrastructure
-- Linear model unable to capture non-linear growth in solar adoption
-
-## Recommendations
-
-To improve prediction accuracy:
-- Integrate weather and solar irradiance data via external APIs
-- Include policy or investment indicators (e.g., subsidy data)
-- Apply advanced models such as Random Forest, XGBoost, or neural networks
-- Deploy a dashboard for visual scenario analysis
-
-## How to Run the Code
-
-1. Clone the GitHub repository
-2. Navigate to the `notebooks/` folder
-3. Open and run `01_eda_modeling.ipynb` in Jupyter or Colab
-4. Ensure the dataset `World Energy Consumption.csv` is placed in the `data/` folder
+A negative R² means our model performs worse than predicting the mean — a clear indicator that linear relationships alone don’t explain solar production trends. Still, this baseline gives us a valuable benchmark for future improvements.
 
 ---
 
-*This report is submitted as part of a capstone project for an AI/ML certification program.*
+##  Project Structure
+
+```
+energy-forecast-capstone/
+├── data/
+│   └── World Energy Consumption.csv
+├── notebooks/
+│   └── 01_eda_modeling_template.ipynb
+├── README.md
+├── .gitignore
+```
+
+---
+
+##  How to Run
+
+1. Clone this repository  
+2. Open the notebook: `notebooks/01_eda_modeling_template.ipynb`  
+3. Ensure the dataset is placed in the `data/` folder  
+4. Run the notebook top to bottom in Jupyter or VSCode  
+
+---
+
+##  Limitations
+
+- No weather data (sunlight, temperature, cloud cover)
+- Many countries had near-zero solar output until mid-2010s
+- Economic indicators alone are too broad for precise modeling
+
+---
+
+##  Future Directions
+
+- Integrate weather and climate data through APIs (e.g., OpenWeatherMap)
+- Use advanced ML models like Random Forest or XGBoost
+- Add geospatial features (latitude, elevation, climate zones)
+- Deploy interactive dashboards or APIs for scenario forecasting
+
+---
+
+This project was completed as part of an AI/ML capstone program. It lays the foundation for future work in sustainable energy forecasting using machine learning.
