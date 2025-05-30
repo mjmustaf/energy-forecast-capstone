@@ -51,7 +51,7 @@ Accurate forecasting enables smarter decision-making, and while environmental da
 - Performance evaluated using RMSE and R² metrics
 
 ---
-## 📈 Model Comparison Summary
+##  Model Comparison Summary
 
 | Model                | RMSE  | R² Score |
 |----------------------|-------|----------|
@@ -61,7 +61,7 @@ Accurate forecasting enables smarter decision-making, and while environmental da
 | K-Nearest Neighbors   | 14.04 | 0.72      |
 
 
-### ✅ Observations
+###  Observations
 - **Random Forest** performed best with the lowest RMSE and highest R².
 - **XGBoost** also achieved strong results.
 - **KNN** was simpler but less accurate.
