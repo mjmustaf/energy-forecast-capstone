@@ -45,20 +45,28 @@ Accurate forecasting enables smarter decision-making, and while environmental da
 - Visualized solar energy trends over time
 - Analyzed distribution of consumption and feature correlations
 
-**4. Baseline Modeling**
-- Trained a simple Linear Regression model on 3 features
-- Evaluated with RMSE and R² metrics
+**4. Modeling and Evaluation**
+- Baseline: Linear Regression
+- Advanced Models: Random Forest, XGBoost, K-Nearest Neighbors
+- Performance evaluated using RMSE and R² metrics
 
 ---
+## 📈 Model Comparison Summary
 
-##  Results
+| Model                | RMSE  | R² Score |
+|----------------------|-------|----------|
+| Linear Regression     | 39.41 | -1.27     |
+| Random Forest         | 9.00  | 0.88      |
+| XGBoost               | 9.92  | 0.86      |
+| K-Nearest Neighbors   | 14.04 | 0.72      |
 
-The baseline Linear Regression model produced:
 
-- **RMSE**: 39.41
-- **R² Score**: -1.27
+### ✅ Observations
+- **Random Forest** performed best with the lowest RMSE and highest R².
+- **XGBoost** also achieved strong results.
+- **KNN** was simpler but less accurate.
+- **Linear Regression** underperformed, confirming the data relationships are non-linear.
 
-A negative R² means our model performs worse than predicting the mean — a clear indicator that linear relationships alone don’t explain solar production trends. Still, this baseline gives us a valuable benchmark for future improvements.
 
 ---
 
@@ -69,7 +77,12 @@ energy-forecast-capstone/
 ├── data/
 │   └── World Energy Consumption.csv
 ├── notebooks/
-│   └── 01_eda_modeling_template.ipynb
+│   ├── 01_eda_and_linear_model.ipynb
+│   ├── 02_random_forest_model.ipynb
+│   ├── 03_xgboost_model.ipynb
+│   ├── 04_knn_model.ipynb
+│   └── 05_model_comparison_summary.ipynb
+├── presentation/
 ├── README.md
 ├── .gitignore
 ```
@@ -79,9 +92,9 @@ energy-forecast-capstone/
 ##  How to Run
 
 1. Clone this repository  
-2. Open the notebook: `notebooks/01_eda_modeling_template.ipynb`  
+2. Open any of the notebooks inside the `notebooks/` folder  
 3. Ensure the dataset is placed in the `data/` folder  
-4. Run the notebook top to bottom in Jupyter or VSCode  
+4. Run the notebook(s) top to bottom in Jupyter or VSCode  
 
 ---
 
@@ -96,9 +109,9 @@ energy-forecast-capstone/
 ##  Potential Enhancements
 
 - Integrate weather and climate data through APIs (e.g., OpenWeatherMap)
-- Use advanced ML models like Random Forest or XGBoost
+- Use deep learning models for time-series forecasting
 - Add geospatial features (latitude, elevation, climate zones)
-- Deploy interactive dashboards or APIs for scenario forecasting
+- Deploy an interactive dashboard or forecasting API
 
 ---
 
